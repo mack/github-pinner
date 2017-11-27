@@ -6,22 +6,41 @@
   }
 
   var type = -1
+  var stored = null
+
   // MARK: - Main
   function init() {
-    var rawElement = parseUrl("https://github.com/mackboudreau/DalhousieScheduleBuilder")
-    var elements = populateElement(rawElement)
+    var rawElements = parseUrl("https://github.com/mackboudreau/")
+    populateElement(rawElements, function(obj) {
+      // set up DOM elements
+
+    })
   }
 
-  function populateElement(rawElements) {
+  function populateElement(rawElements, completion) {
     var handler = new APIHandler(rawElements.url)
     handler.load(function(response) {
-      
+      objs = JSON.parse(response)
+      if (type == types["PROFILE"]) {
+        rawElements.username = objs.login
+        rawElements.fullname = objs.name
+        rawElements.avatar = objs.avatar_url
+        rawElements.bio = objs.bio
+        rawElements.company = objs.company
+        rawElements.repoCount = objs.public_repos
+        rawElements.followers = objs.followers
+        rawElements.following = objs.following
+      } else if (type == types["REPO"]) {
+        rawElements.reponame = objs.name
+        rawElements.desc = objs.description
+        rawElements._lang = objs.language
+        rawElements.stars = objs.stargazers_count
+        rawElements.forks = objs.forks
+      } else if (type == types["ALL"]) {
+
+      }
+      completion()
     })
-
-  }
-
-  function parseJSON(data) {
-
   }
 
   // MARK: - Models
