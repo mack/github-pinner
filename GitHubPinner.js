@@ -10,36 +10,41 @@
 
   // MARK: - Main
   function init() {
-    var rawElements = parseUrl("https://github.com/mackboudreau/")
-    populateElement(rawElements, function(obj) {
+    var url = parseUrl("https://github.com/mackboudreau/")
+    populateElement(url, function(obj) {
       // set up DOM elements
-
+      console.log(obj)
     })
   }
 
-  function populateElement(rawElements, completion) {
-    var handler = new APIHandler(rawElements.url)
+  function populateElement(url, completion) {
+    var handler = new APIHandler(url)
     handler.load(function(response) {
       objs = JSON.parse(response)
       if (type == types["PROFILE"]) {
-        rawElements.username = objs.login
-        rawElements.fullname = objs.name
-        rawElements.avatar = objs.avatar_url
-        rawElements.bio = objs.bio
-        rawElements.company = objs.company
-        rawElements.repoCount = objs.public_repos
-        rawElements.followers = objs.followers
-        rawElements.following = objs.following
+        var profile = new Profile()
+        profile.username = objs.login
+        profile.fullname = objs.name
+        profile.avatar = objs.avatar_url
+        profile.bio = objs.bio
+        profile.company = objs.company
+        profile.repoCount = objs.public_repos
+        profile.followers = objs.followers
+        profile.following = objs.following
+        completion(profile)
+        return
       } else if (type == types["REPO"]) {
-        rawElements.reponame = objs.name
-        rawElements.desc = objs.description
-        rawElements._lang = objs.language
-        rawElements.stars = objs.stargazers_count
-        rawElements.forks = objs.forks
+        var repo = new Repository()
+        repo.reponame = objs.name
+        repo.desc = objs.description
+        repo._lang = objs.language
+        repo.stars = objs.stargazers_count
+        repo.forks = objs.forks
+        completion(repo)
+        return
       } else if (type == types["ALL"]) {
 
       }
-      completion()
     })
   }
 
@@ -91,26 +96,20 @@
       // profile
       type = types["PROFILE"]
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com(\/)?/g, "").replace(/\/$/, "")
-      var profile = new Profile()
-      profile.url = "https://api.github.com/users/" + profileName
-      return profile
+      return "https://api.github.com/users/" + profileName
     } else if (repository.test(url)) {
       // repository
       type = types["REPO"]
 
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com(\/)?/g, "").replace(/\/.*(\/)?$/, "")
       var repositoryName = url.replace(/^(http|https):\/\/(www.)?github.com\/[A-Za-z\d]{1,39}\//g, "").replace(/\/$/, "")
-      var repository = new Repository()
-      repository.url = "https://api.github.com/repos/" + profileName + "/" + repositoryName
-      return repository
+      return "https://api.github.com/repos/" + profileName + "/" + repositoryName
     } else if (repositories.test(url)) {
       // repositories
       type = types["ALL"]
 
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com\//, "").replace(/\?tab=repositories(\/)?$/, "")
-      var repository = new Repository()
-      repository.url = "https://api.github.com/users/" + profileName + "/repos"
-      return repository
+      return "https://api.github.com/users/" + profileName + "/repos"
     } else {
       throw new Error('Invalid data parameter! Unrecognized GitHub URl: ' + url);
     }
