@@ -10,10 +10,10 @@
 
   // MARK: - Main
   function init() {
-    var url = parseUrl("https://github.com/mackboudreau/")
+    var url = parseUrl("https://github.com/mackboudreau?tab=repositories")
     populateElement(url, function(obj) {
       // set up DOM elements
-      console.log(obj)
+
     })
   }
 
@@ -21,53 +21,8 @@
     var handler = new APIHandler(url)
     handler.load(function(response) {
       objs = JSON.parse(response)
-      if (type == types["PROFILE"]) {
-        var profile = new Profile()
-        profile.username = objs.login
-        profile.fullname = objs.name
-        profile.avatar = objs.avatar_url
-        profile.bio = objs.bio
-        profile.company = objs.company
-        profile.repoCount = objs.public_repos
-        profile.followers = objs.followers
-        profile.following = objs.following
-        completion(profile)
-        return
-      } else if (type == types["REPO"]) {
-        var repo = new Repository()
-        repo.reponame = objs.name
-        repo.desc = objs.description
-        repo._lang = objs.language
-        repo.stars = objs.stargazers_count
-        repo.forks = objs.forks
-        completion(repo)
-        return
-      } else if (type == types["ALL"]) {
-
-      }
+      completion(objs)
     })
-  }
-
-  // MARK: - Models
-  function Repository() {
-    this.url = ""
-    this.reponame = ""
-    this.desc = ""
-    this._lang = ""
-    this.stars = 0
-    this.forks = 0
-  }
-
-  function Profile() {
-    this.url = ""
-    this.username = ""
-    this.fullname = ""
-    this.avatar = ""
-    this.bio = ""
-    this.company = ""
-    this.repoCount = 0
-    this.followers = 0
-    this.following = 0
   }
 
   // MARK: - API Handler

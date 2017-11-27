@@ -1,0 +1,33 @@
+body {
+  margin: 20px;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#github-pinner {
+  background-color: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+  min-width: 300px;
+  max-width: 400px;
+  height: 200px;
+  padding: 15px;
+}
+
+#github-pinner .github-profile .github-profile-avatar {
+  float: left;
+  width: 80px;
+  border-radius: 5px;
+}
+
+#github-pinner .github-profile .github-profile-title {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+#github-pinner .github-profile .github-profile-details {
+  width: calc(100% - 80px - 15px - 15px);
+  float: right;
+  overflow: auto;
+  margin-left: 15px;
+}
