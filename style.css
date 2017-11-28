@@ -4,30 +4,96 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-#github-pinner {
+.github-pinner {
+  position: relative;
   background-color: white;
   border: 1px solid #e1e4e8;
   border-radius: 5px;
   min-width: 300px;
   max-width: 400px;
-  height: 200px;
+  min-height: 150px;
   padding: 15px;
 }
 
-#github-pinner .github-profile .github-profile-avatar {
-  float: left;
+.github-pinner #gp-container a > #gp-avatar {
+  user-select: none;
+  display: inline-block;
+  vertical-align: top;
   width: 80px;
   border-radius: 5px;
 }
 
-#github-pinner .github-profile .github-profile-title {
+.github-pinner #gp-container > #gp-information {
+  width: calc(100% - 80px - 15px);
+  display: inline-block;
+  overflow: auto;
+  margin-left: 10px;
+}
+
+.github-pinner #gp-container > #gp-information > .gp-element {
+  display: block;
+}
+
+.github-pinner #gp-container > #gp-information .gp-link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.github-pinner #gp-container > #gp-information .gp-link > .gp-name:hover, .github-pinner #gp-container > #gp-information .gp-link > .gp-user:hover {
+  cursor: pointer;
+  color: #0366d6;
+}
+
+.github-pinner #gp-container > #gp-information .gp-link > .gp-name {
   font-weight: 600;
   font-size: 20px;
 }
 
-#github-pinner .github-profile .github-profile-details {
-  width: calc(100% - 80px - 15px - 15px);
-  float: right;
-  overflow: auto;
-  margin-left: 15px;
+.github-pinner #gp-container > #gp-information .gp-link > .gp-user {
+  font-size: 16px;
+  color: #666;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.github-pinner #gp-container > #gp-information > .gp-bio {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6a737d;
+}
+
+.github-pinner #gp-container > .gp-btn:hover {
+    background-color: #e6ebf1;
+    background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+    background-position: 0 -0.5em;
+    border-color: rgba(27,31,35,0.35);
+}
+
+.github-pinner #gp-container > .gp-btn {
+    text-align: center;
+    background-repeat: repeat-x;
+    background-position: -1px -1px;
+    background-size: 110% 110%;
+    border: 1px solid rgba(27,31,35,0.2);
+    border-radius: 0.25em;
+    -webkit-appearance: none;
+    user-select: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #24292e;
+    background-color: #eff3f6;
+    background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+}
+
+.github-pinner #gp-container > .gp-btn.gp-follow {
+  position: absolute;
+  width: 75px;
+
+  bottom: 15px;
+  right: 15px;
 }
