@@ -1,6 +1,7 @@
 body {
   margin: 20px;
   padding: 0;
+  background-color: #eeeeee;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -202,6 +203,43 @@ body {
 .github-pinner #gp-container-repo #gp-stats .gp-stat.gp-link:hover {
   color: #0366d6 !important;
   text-decoration: none;
+}
+
+.github-pinner #gp-container-all-repos {
+    background-color: white;
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 3px;
+    max-height: 90%;
+    overflow: scroll;
+}
+
+.github-pinner #gp-container-all-repos .gp-search {
+  /* reset */
+  border:none;
+  outline: none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  border: 1px solid #e1e4e8;
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.github-pinner #gp-container-all-repos > #gp-container-repo {
+  margin: 8px 0;
+}
+
+.github-pinner .gp-user-link {
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  right: 10px;
 }
 
 @media (max-width: 300px) {
