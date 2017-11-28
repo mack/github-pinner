@@ -161,19 +161,22 @@ body {
   font-size: 12px !important;
 }
 
+.github-pinner #gp-container-repo #gp-stats {
+}
+
 .github-pinner #gp-container-repo #gp-stats .gp-stat {
   color: #586069 !important;
   font-size: 12px !important;
   display: inline-block;
-  margin-top: 0px;
-  margin-left: 10px;
+  margin: 0 0;
+  margin-left: 15px;
 }
 
 .github-pinner #gp-container-repo #gp-stats .gp-stat:first-child {
   margin-left: 0px;
 }
 
-.github-pinner #gp-container-repo #gp-stats .gp-stat .octicon-star {
+.github-pinner #gp-container-repo #gp-stats .gp-stat .gp-octicon {
   vertical-align: text-bottom;
   display: inline-block;
   fill: currentColor;
@@ -193,6 +196,7 @@ body {
 
 .github-pinner #gp-container-repo #gp-stats .gp-stat.gp-link {
   cursor: pointer;
+
 }
 
 .github-pinner #gp-container-repo #gp-stats .gp-stat.gp-link:hover {
