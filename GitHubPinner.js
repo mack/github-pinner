@@ -10,10 +10,12 @@
 
   // MARK: - Main
   function init() {
-    var url = parseUrl("https://github.com/mackboudreau?tab=repositories")
+    var origin = document.getElementById("github-pinner")
+    if (origin == null) return
+    var url = parseUrl(origin.getAttribute("data"))
     populateElement(url, function(obj) {
       // set up DOM elements
-
+      console.log(type)
     })
   }
 
@@ -70,5 +72,8 @@
     }
   }
 
-  document.onload = init()
+  document.addEventListener("DOMContentLoaded", function(event){
+    init()
+  })
+
 }());
