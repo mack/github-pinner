@@ -39,9 +39,9 @@ body {
   color: inherit;
 }
 
-.github-pinner #gp-container > #gp-information .gp-link > .gp-name:hover, .github-pinner #gp-container > #gp-information .gp-link > .gp-user:hover {
+.github-pinner #gp-container > #gp-information .gp-link:hover > .gp-name, .github-pinner #gp-container > #gp-information .gp-link:hover > .gp-user {
   cursor: pointer;
-  color: #0366d6;
+  text-decoration: underline;
 }
 
 .github-pinner #gp-container > #gp-information .gp-link > .gp-name {
@@ -57,8 +57,8 @@ body {
 }
 
 .github-pinner #gp-container > #gp-information > .gp-bio {
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 5px;
+  font-size: 13px;
   color: #6a737d;
 }
 
@@ -90,10 +90,34 @@ body {
     background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
 }
 
+.github-pinner #gp-container > .gp-stats {
+
+}
+.github-pinner #gp-container > .gp-stats .gp-stat {
+  color: #586069;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 12px;
+  margin-top: 5px;
+}
+
+.github-pinner #gp-container > .gp-stats .gp-stat:hover {
+  color: #0366d6;
+}
+
+.github-pinner #gp-container > .gp-stats .gp-stat-val {
+  font-size: 20px;
+  text-align: center;
+  display: block;
+}
+.github-pinner #gp-container > .gp-stats .gp-stat-desc {
+  font-size: 12px;
+  display: block;
+}
+
 .github-pinner #gp-container > .gp-btn.gp-follow {
   position: absolute;
   width: 75px;
-
   bottom: 15px;
   right: 15px;
 }
