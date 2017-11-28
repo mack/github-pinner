@@ -6,7 +6,6 @@
   }
 
   var type = -1
-  var stored = null
 
   // MARK: - Main
   function init() {
