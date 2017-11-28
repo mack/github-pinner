@@ -11,7 +11,7 @@ body {
   border-radius: 5px;
   min-width: 300px;
   max-width: 400px;
-  min-height: 150px;
+  height: auto;
   padding: 15px;
 }
 
@@ -19,7 +19,8 @@ body {
   user-select: none;
   display: inline-block;
   vertical-align: top;
-  width: 80px;
+  width: 80px; /* if bio exists */
+  /* 50px else */
   border-radius: 5px;
 }
 
@@ -69,7 +70,12 @@ body {
     border-color: rgba(27,31,35,0.35);
 }
 
-.github-pinner #gp-container > .gp-btn {
+.github-pinner #gp-container .gp-btn {
+    margin-top: 6px;
+    margin-right: 8px;
+    width: 70px;
+    float: right;
+    text-decoration: none;
     text-align: center;
     background-repeat: repeat-x;
     background-position: -1px -1px;
@@ -91,14 +97,22 @@ body {
 }
 
 .github-pinner #gp-container > .gp-stats {
-
+  display: block;
+  margin-top: 5px;
 }
+
 .github-pinner #gp-container > .gp-stats .gp-stat {
+  border-right: 1px solid #e2e2e2;
+  padding-right: 12px;
   color: #586069;
   cursor: pointer;
   display: inline-block;
-  margin: 0 12px;
+  margin: 0 6px;
   margin-top: 5px;
+}
+
+.github-pinner #gp-container > .gp-stats .gp-stat:last-of-type {
+  border-right: none;
 }
 
 .github-pinner #gp-container > .gp-stats .gp-stat:hover {
@@ -113,11 +127,4 @@ body {
 .github-pinner #gp-container > .gp-stats .gp-stat-desc {
   font-size: 12px;
   display: block;
-}
-
-.github-pinner #gp-container > .gp-btn.gp-follow {
-  position: absolute;
-  width: 75px;
-  bottom: 15px;
-  right: 15px;
 }
