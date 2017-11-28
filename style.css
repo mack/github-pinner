@@ -19,8 +19,8 @@ body {
   user-select: none;
   display: inline-block;
   vertical-align: top;
-  width: 80px; /* if bio exists */
-  /* 50px else */
+  width: 80px; /* 80px if bio exists */
+  /* 60px else */
   border-radius: 5px;
 }
 
@@ -119,12 +119,12 @@ body {
 }
 
 .github-pinner #gp-container > .gp-stats .gp-stat-val {
-  font-size: 20px;
+  font-size: 19px;
   text-align: center;
   display: block;
 }
 .github-pinner #gp-container > .gp-stats .gp-stat-desc {
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
   display: block;
 }
