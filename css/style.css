@@ -53,6 +53,7 @@ body {
 }
 
 .github-pinner #gp-container-profile > #gp-information .gp-link > .gp-user {
+  display: block;
   font-size: 16px;
   color: #666;
   font-style: normal;
@@ -103,6 +104,7 @@ body {
 }
 
 .github-pinner #gp-container-profile > .gp-stats .gp-stat {
+  text-decoration: none;
   width: 70px;
   border-right: 1px solid #eaecef;
   color: #586069;
@@ -166,6 +168,7 @@ body {
 }
 
 .github-pinner #gp-container-repo #gp-stats .gp-stat {
+  text-decoration: none;
   color: #586069 !important;
   font-size: 12px !important;
   display: inline-block;
