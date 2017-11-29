@@ -5,8 +5,6 @@
     ALL : 2
   }
 
-  var type = -1
-
   // MARK: - Main
   function init() {
     var origin = document.getElementsByClassName("github-pinner")
@@ -14,14 +12,14 @@
 
     loadCSS()
     for (i = 0; i < origin.length; i++) {
-      var url = parseUrl(origin[i].getAttribute("data"))
-      populateElement(url, origin[i], function(obj, element) {
+      var values = parseUrl(origin[i].getAttribute("data"))
+      populateElement(values["URL"], values["TYPE"], origin[i], function(obj, type, element) {
         // set up DOM elements
         if (type == types["PROFILE"]) {
             var temp = "<div id=\"gp-container-profile\"><a href=\"" + obj.html_url + "\">"
             if (obj.bio.length < 45) temp += "<img id='gp-avatar' style=\"width: 60px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow\">Follow</a></div></div>"
             else temp += "<img id='gp-avatar' style=\"width: 80px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow\">Follow</a></div></div>"
-
+            element.className += " gp-profile"
             element.innerHTML = temp
         } else if (type == types["REPO"]) {
             var temp = "<div id=\"gp-container-repo\"><a class=\"gp-title\" href=\"" + obj.html_url + "\">" + obj.name + "</a><p class=\"gp-desc\">" + obj.description + "</p><div id=\"gp-stats\">"
@@ -29,9 +27,10 @@
             if (obj.stargazers_count != 0) temp += "<a class=\"gp-stat gp-link\" href=\"" + obj.html_url + "/stargazers" + "\"><svg class=\"gp-octicon\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 14 16\" width=\"14\"><path fill-rule=\"evenodd\" d=\"M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z\"></path></svg>" + obj.stargazers_count + "</a>"
             if (obj.forks != 0) temp += "<a class=\"gp-stat gp-link\" href=\"" + obj.html_url + "/network" + "\"><svg class=\"gp-octicon\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 10 16\" width=\"10\"><path fill-rule=\"evenodd\" d=\"M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z\"></path></svg>" + obj.forks + "</a>"
             temp += "</div></div>"
+            element.className += " gp-repo"
             element.innerHTML = temp
         } else if (type == types["ALL"]) {
-
+          
         }
         element.style.visibility = "visible"
       })
@@ -43,14 +42,14 @@
     styleref.rel = "stylesheet"
     styleref.type = "text/css"
     styleref.href = "css/style.css"
-    document.getElementsByTagName("head")[0].appendChild(styleref)
+    document.getElementsByTagName("head")[0].prepend(styleref)
   }
 
-  function populateElement(url, element, completion) {
+  function populateElement(url, type, element, completion) {
     var handler = new APIHandler(url)
     handler.load(function(response) {
       objs = JSON.parse(response)
-      completion(objs, element)
+      completion(objs, type, element)
     })
   }
 
@@ -78,22 +77,17 @@
     repositories = /^(http|https):\/\/(www.)?github.com\/[A-Za-z\d]{1,39}\?tab=repositories(\/)?$/;
     if (profile.test(url)) {
       // profile
-      type = types["PROFILE"]
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com(\/)?/g, "").replace(/\/$/, "")
-      return "https://api.github.com/users/" + profileName
+      return {"URL": "https://api.github.com/users/" + profileName, "TYPE" : types["PROFILE"] }
     } else if (repository.test(url)) {
       // repository
-      type = types["REPO"]
-
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com(\/)?/g, "").replace(/\/.*(\/)?$/, "")
       var repositoryName = url.replace(/^(http|https):\/\/(www.)?github.com\/[A-Za-z\d]{1,39}\//g, "").replace(/\/$/, "")
-      return "https://api.github.com/repos/" + profileName + "/" + repositoryName
+      return {"URL" : "https://api.github.com/repos/" + profileName + "/" + repositoryName, "TYPE": types["REPO"] }
     } else if (repositories.test(url)) {
       // repositories
-      type = types["ALL"]
-
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com\//, "").replace(/\?tab=repositories(\/)?$/, "")
-      return "https://api.github.com/users/" + profileName + "/repos"
+      return {"URL" : "https://api.github.com/users/" + profileName + "/repos", "TYPE" : types["ALL"] }
     } else {
       throw new Error('GitHub Planner: Invalid data parameter! Unrecognized GitHub URl: ' + url)
     }
