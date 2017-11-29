@@ -1,4 +1,4 @@
-# GitHub Pinner
+# GitHub Pinner [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 Pin a GitHub profile, a bunch of repositories, or a single repository on your own website with this quick and easy tool.
 
 ## Preview
@@ -9,11 +9,11 @@ Pin a GitHub profile, a bunch of repositories, or a single repository on your ow
 ## Usage
 Simply set the html **data** field with a GitHub profile, repository, or repositories tab url...
 ```html
-<script src="https://s3.amazonaws.com/mackboudreau/GitHubPinner.js"></script>
+<script src="d29mk5socxaj4o.cloudfront.net/GitHubPinner.js"></script>
 <div id="github-pinner" data="https://github.com/mackboudreau/CustomSegmentedController"></div>
 ```
 
 ## TODO
 * Implement functionality for a "All Repos" element
-* Use AWS Cloudfront to serve files to reduce latency on sites
+* ~~Use AWS Cloudfront to serve files to reduce latency on sites~~
 * Add additional option styles for tiles

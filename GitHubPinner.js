@@ -41,7 +41,7 @@
     var styleref = document.createElement("link")
     styleref.rel = "stylesheet"
     styleref.type = "text/css"
-    styleref.href = "css/style.css"
+    styleref.href = "https://d29mk5socxaj4o.cloudfront.net/css/style.css"
     document.getElementsByTagName("head")[0].appendChild(styleref)
   }
 
