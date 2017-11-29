@@ -10,8 +10,7 @@ Simply set the html **data** field with a GitHub profile, repository, or reposit
 
 ## Preview
 <p align="center"><img src="https://i.imgur.com/iC56hgU.png" width="550px"><br>
-  <img src="https://i.imgur.com/IHws5n9.png" width="350px">
-<img src="https://i.imgur.com/sAUzE7T.png" width="350px"></p>
+<img src="https://i.imgur.com/8O9L4sf.png" width="1000px"></p>
 
 ## TODO
 * Implement functionality for a "All Repos" element
