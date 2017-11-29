@@ -142,7 +142,7 @@ body {
   border-radius: 5px;
   min-width: 200px;
   max-width: 300px;
-  height: auto;
+  height: inherit;
   padding: 15px;
 }
 
