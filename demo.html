@@ -2,10 +2,18 @@
 <head>
   <meta lang="en" charset="utf-8">
   <title>GitHub Pinner Demo</title>
-  <!-- <link rel="stylesheet" href="override.css"> -->
+  <style>
+    .github-pinner {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
   <script src="GitHubPinner.js"></script>
   <div data="https://github.com/mackboudreau?tab=repositories" class="github-pinner" style="visibility: hidden;"></div>
+  <div data="https://github.com/mackboudreau" class="github-pinner" style="visibility: hidden;"></div>
+  <div data="https://github.com/mackboudreau/DalhousieScheduleBuilder" class="github-pinner" style="visibility: hidden;"></div>
 </body>
 </html>
