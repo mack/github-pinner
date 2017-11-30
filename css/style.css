@@ -23,9 +23,7 @@ body {
 .github-pinner.gp-all {
   background-color: white;
   border-radius: 3px;
-  max-height: 90%;
-  overflow: scroll;
-  width: 500px;
+  width: 300px;
 }
 
 /* MARK: - Profile Styling */
@@ -218,11 +216,13 @@ body {
   text-decoration: none;
 }
 
-.github-pinner #gp-container-all-repos {
+.github-pinner #gp-container-all-repos  {
     position: relative;
+    max-height: 90%;
+    overflow: scroll;
 }
 
-.github-pinner #gp-container-all-repos .gp-search {
+.github-pinner .gp-search {
   /* reset */
   border:none;
   outline: none;
@@ -245,8 +245,19 @@ body {
   background-blend-mode: red;
 }
 
+.github-pinner .gp-search:focus {
+  background-image: url("/Users/mack/Desktop/search2.svg");
+  border-color: #3B9CEA;
+}
+
 .github-pinner #gp-container-all-repos > #gp-container-repo {
-  margin: 8px 0;
+  margin: 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.github-pinner #gp-container-all-repos > #gp-container-repo:last-child {
+  border-bottom: none;
 }
 
 .github-pinner .gp-user-link {
