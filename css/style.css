@@ -238,7 +238,7 @@ body {
   font-size: 14px;
   width: 100%;
   margin-bottom: 8px;
-  background-image: url("/Users/mack/Desktop/search.svg");
+  background-image: url("https://d29mk5socxaj4o.cloudfront.net/imgs/search.svg");
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: 12px center;
@@ -246,7 +246,7 @@ body {
 }
 
 .github-pinner .gp-search:focus {
-  background-image: url("/Users/mack/Desktop/search2.svg");
+  background-image: url("https://d29mk5socxaj4o.cloudfront.net/imgs/search-highlight.svg");
   border-color: #3B9CEA;
 }
 

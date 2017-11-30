@@ -5,7 +5,7 @@ Do you want to showcase a github repository or profile on your website? Instead 
 Simply set the html **data** field with a GitHub profile, repository, or repositories tab url...
 ```html
 <script src="d29mk5socxaj4o.cloudfront.net/GitHubPinner.js"></script>
-<div id="github-pinner" data="https://github.com/mackboudreau/CustomSegmentedController"></div>
+<div data="https://github.com/mackboudreau?tab=repositories" class="github-pinner" style="visibility: hidden;"></div>
 ```
 
 ## Preview
@@ -16,4 +16,4 @@ Simply set the html **data** field with a GitHub profile, repository, or reposit
 * Implement functionality for a "All Repos" element
 * ~~Use AWS Cloudfront to serve files to reduce latency on sites~~
 * Add additional option styles for tiles
-* Expanding width "All-repo" section 
+* Expanding width "All-repo" section
