@@ -30,7 +30,7 @@
             element.className += " gp-repo"
             element.innerHTML = temp
         } else if (type == types["ALL"]) {
-          
+            
         }
         element.style.visibility = "visible"
       })
