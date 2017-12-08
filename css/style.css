@@ -267,6 +267,7 @@ body {
   right: 10px;
 }
 
-@media (max-width: 300px) {
-
+/* Additional Styles */
+.github-pinner.flat .gp-btn {
+  background-color: blue;
 }

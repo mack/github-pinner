@@ -24,14 +24,26 @@
           var temp = "<div id=\"gp-container-profile\"><a href=\"" + obj.html_url + "\">"
           if (obj.bio.length < 45) temp += "<img id='gp-avatar' style=\"width: 60px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow\">Follow</a></div></div>"
           else temp += "<img id='gp-avatar' style=\"width: 80px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow\">Follow</a></div></div>"
-          element.className = "github-pinner gp-profile"
+          if (element.classList.contains("flat")) {
+            element.className = "github-pinner flat gp-profile"
+          } else {
+            element.className = "github-pinner gp-profile"
+          }
           element.innerHTML = temp
       } else if (type == types["REPO"]) {
           var temp = getRepo(obj)
-          element.className = "github-pinner gp-repo"
+          if (element.classList.contains("flat")) {
+            element.className = "github-pinner flat gp-repo"
+          } else {
+            element.className = "github-pinner gp-repo"
+          }
           element.innerHTML = temp
       } else if (type == types["ALL"]) {
-          element.className = "github-pinner gp-all"
+          if (element.classList.contains("flat")) {
+            element.className = "github-pinner flat gp-all"
+          } else {
+            element.className = "github-pinner gp-all"
+          }
           if (filter != "") {
             var child = element.querySelector("#gp-container-all-repos")
             var temp = ""
@@ -75,7 +87,7 @@
     var styleref = document.createElement("link")
     styleref.rel = "stylesheet"
     styleref.type = "text/css"
-    styleref.href = "css/style.css"
+    styleref.href = "css/style.css"//"https://d29mk5socxaj4o.cloudfront.net/css/style.css"
     document.getElementsByTagName("head")[0].prepend(styleref)
   }
 
