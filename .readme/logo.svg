@@ -11,7 +11,7 @@
         <g id="Group-4">
             <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="287" height="173"></rect>
             <g id="Group" transform="translate(69.000000, 31.000000)">
-                <rect id="Rectangle" fill="#BABABA" x="0" y="0" width="160" height="101" rx="6"></rect>
+                <rect id="Rectangle" fill="#DEDEDE" x="0" y="0" width="160" height="101" rx="6"></rect>
                 <rect id="Rectangle" fill="#FFFFFF" x="9" y="16" width="45" height="77" rx="3"></rect>
                 <rect id="Rectangle" fill="#FFFFFF" x="61" y="17" width="91" height="31" rx="3"></rect>
                 <rect id="Rectangle" fill="#FFFFFF" x="61" y="53" width="91" height="40" rx="3"></rect>
