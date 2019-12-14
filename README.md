@@ -1,4 +1,4 @@
-<p align="center"><img src="https://d29mk5socxaj4o.cloudfront.net/header.svg">
+<p align="center"><img src=".readme/logo.svg">
   <br><br>
 <a href="https://www.gnu.org/licenses/gpl-3.0">
   <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg">
@@ -19,8 +19,8 @@ Simply set the html **data** field with a GitHub profile, repository, or reposit
 ```
 
 ## Preview
-<p align="left"><img src="https://i.imgur.com/iC56hgU.png" width="550px"><br>
-<img src="https://i.imgur.com/8O9L4sf.png" width="1000px"></p>
+<p align="left"><img src=".readme/profile-example.png" width="550px"><br>
+<img src=".readme/repo-example.png" width="1000px"></p>
 
 ## TODO
 * Implement functionality for a "All Repos" element
