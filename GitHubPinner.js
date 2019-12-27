@@ -8,7 +8,7 @@
   // MARK: - Main
   function init() {
     var origin = document.getElementsByClassName("github-pinner")
-    if (origin[0] == null) throw new Error('GitHub Planner: Could not find GitHub Pinner HTML element. Do you have the right \'id\' set on the element?')
+    if (origin[0] == null) throw new Error('GitHub Pinner: Could not find GitHub Pinner HTML element. Do you have the right \'id\' set on the element?')
     loadCSS()
 
     for (i = 0; i < origin.length; i++) {
@@ -135,7 +135,7 @@
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com\//, "").replace(/\?tab=repositories(\/)?$/, "")
       return {"URL" : "https://api.github.com/users/" + profileName + "/repos", "TYPE" : types["ALL"] }
     } else {
-      throw new Error('GitHub Planner: Invalid data parameter! Unrecognized GitHub URl: ' + url)
+      throw new Error('GitHub Pinner: Invalid data parameter! Unrecognized GitHub URl: ' + url)
     }
   }
 
