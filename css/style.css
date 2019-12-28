@@ -82,7 +82,7 @@ body {
 
 .github-pinner #gp-container-profile .gp-btn:hover {
     background-color: #e6ebf1;
-    background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+    /*background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);*/
     background-position: 0 -0.5em;
     border-color: rgba(27,31,35,0.35);
 }
@@ -109,7 +109,7 @@ body {
     cursor: pointer;
     color: #24292e;
     background-color: #eff3f6;
-    background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+    /*background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);*/
 }
 
 .github-pinner #gp-container-profile > .gp-stats {
@@ -270,4 +270,36 @@ body {
 /* Additional Styles */
 .github-pinner.flat .gp-btn {
   background-color: blue;
+}
+
+/* Dark Theme Styles */
+.github-pinner-dark{
+    background-color: #121212;
+    color: #f0e3ff;
+}
+
+.gp-name-dark:hover{
+    color: #916dd5;
+}
+
+.gp-user-dark{
+    color: #f0e3ff !important;
+}
+
+.gp-user-dark:hover{
+    color: #916dd5 !important;
+}
+
+.gp-stat-dark{
+    color: #f0e3ff !important;
+    border-color: #916dd5 !important;
+}
+
+.gp-stats-dark:hover{
+    color: #916dd5 !important;
+}
+
+.gp-btn-dark{
+    color: #f0e3ff !important;
+    background-color: #916dd5 !important;
 }

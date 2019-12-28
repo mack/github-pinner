@@ -7,33 +7,38 @@
 
   // MARK: - Main
   function init() {
-    var origin
-    origin = document.getElementsByClassName("github-pinner")
-    if (origin[0] == null){
-        origin = document.getElementsByClassName("github-pinner-dark")
-        if (origin[0] == null){
+    var origin = document.getElementsByClassName("github-pinner")
+    var origin_dark = document.getElementsByClassName("github-pinner-dark")
+
+    if (origin[0] == null && origin_dark[0] == null){
             throw new Error('GitHub Planner: Could not find the GitHub Pinner HTML element. Do you have the proper \'id\' set on the element?')
-        }
     }
+
+
     loadCSS()
 
     for (i = 0; i < origin.length; i++) {
       loadElements(origin[i])
     }
+    for (i = 0; i < origin_dark.length; i++) {
+      loadElements(origin_dark[i], "dark")
+    }
   }
 
-  function loadElements(parent, filter = "") {
+  function loadElements(parent, theme = "", filter = "") {
+    console.log(theme);
     var values = parseUrl(parent.getAttribute("data"))
     getDataForUrl(values["URL"], values["TYPE"], parent, function(obj, type, element) {
       // set up DOM elements
       if (type == types["PROFILE"]) {
+          var gp_stat = ((theme=="dark")?"gp-stat gp-stat-dark":"gp-stat")
           var temp = "<div id=\"gp-container-profile\"><a href=\"" + obj.html_url + "\">"
-          if (obj.bio.length < 45) temp += "<img id='gp-avatar' style=\"width: 60px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow\">Follow</a></div></div>"
-          else temp += "<img id='gp-avatar' style=\"width: 80px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\"gp-stat\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow\">Follow</a></div></div>"
+          if (obj.bio.length < 45) temp += "<img id='gp-avatar' style=\"width: 60px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\""+gp_stat+"\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\""+gp_stat+"\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\""+gp_stat+"\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow\">Follow</a></div></div>"
+          else temp += "<img id='gp-avatar' style=\"width: 80px;\" src=\"" + obj.avatar_url + "\"></a><div id='gp-information'><a class='gp-link' href=\"" + obj.html_url + "\"><span class=\"gp-element gp-name\">" + obj.name + "</span><span class=\"gp-element gp-user\">" + obj.login + "</span></a><span class=\"gp-element gp-bio\">" + obj.bio + "</span></div><div class='gp-stats'><a class=\""+gp_stat+"\" href=\"" + obj.html_url + "?tab=repositories" + "\"><b class=\"gp-stat-val\">" + obj.public_repos + "</b><span class=\"gp-stat-desc\">Repos</span></a><a class=\""+gp_stat+"\" href=\"" + obj.html_url + "?tab=followers" + "\"><b class=\"gp-stat-val\">" + obj.followers + "</b><span class=\"gp-stat-desc\">Followers</span></a><a class=\""+gp_stat+"\" href=\"" + obj.html_url + "?tab=following" + "\"><b class=\"gp-stat-val\">" + obj.following + "</b><span class=\"gp-stat-desc\">Following</span></a><a href=\"" + obj.html_url + "\" class=\"gp-btn gp-follow" + ((theme=="dark")?" gp-btn-dark":"")+"\">Follow</a></div></div>"
           if (element.classList.contains("flat")) {
-            element.className = "github-pinner flat gp-profile"
+            element.className = "github-pinner flat gp-profile" + ((theme=="dark") ? " github-pinner-dark" : "")
           } else {
-            element.className = "github-pinner gp-profile"
+            element.className = "github-pinner gp-profile" + ((theme=="dark") ? " github-pinner-dark" : "")
           }
           element.innerHTML = temp
       } else if (type == types["REPO"]) {
