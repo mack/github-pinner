@@ -7,8 +7,14 @@
 
   // MARK: - Main
   function init() {
-    var origin = document.getElementsByClassName("github-pinner")
-    if (origin[0] == null) throw new Error('GitHub Planner: Could not find GitHub Pinner HTML element. Do you have the right \'id\' set on the element?')
+    var origin
+    origin = document.getElementsByClassName("github-pinner")
+    if (origin[0] == null){
+        origin = document.getElementsByClassName("github-pinner-dark")
+        if (origin[0] == null){
+            throw new Error('GitHub Planner: Could not find the GitHub Pinner HTML element. Do you have the proper \'id\' set on the element?')
+        }
+    }
     loadCSS()
 
     for (i = 0; i < origin.length; i++) {
