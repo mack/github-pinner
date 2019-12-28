@@ -8,7 +8,7 @@
 </p>
 
 
-# Overview 
+# Overview
 Do you want to showcase a github repository or profile on your website? Instead of leaving a simple link, use this tool to create embedded HTML github tiles. It uses GitHub's API to grab the information, so no need to worry about updating html. You can pin profiles, single repositories, or even all repositories linked to an individual profile!
 
 ## Usage
@@ -18,9 +18,20 @@ Simply set the html **data** field with a GitHub profile, repository, or reposit
 <div data="https://github.com/mackboudreau?tab=repositories" class="github-pinner" style="visibility: hidden;"></div>
 ```
 
-## Preview
+### Preview
 <p align="left"><img src=".readme/profile-example.png" width="550px"><br>
 <img src=".readme/repo-example.png" width="1000px"></p>
+
+## Dark Theme
+The profile tab is equipped to handle a dark theme. This is specified by updating the class attribute to use the **github-pinner-dark** class name.
+
+```html
+<script src="d29mk5socxaj4o.cloudfront.net/GitHubPinner.js"></script>
+<div data="https://github.com/mack" class="github-pinner-dark" style="visibility: hidden;"></div>
+```
+### Preview (Dark-Theme)
+<p align="left"><img src=".readme/dark-theme-example.png" width="550px"><br>
+
 
 ## TODO
 * Implement functionality for a "All Repos" element
@@ -28,3 +39,4 @@ Simply set the html **data** field with a GitHub profile, repository, or reposit
 * Add additional option styles for tiles
 * Expanding width "All-repo" section
 * Hover-able icon with GitHub Profile popup
+* Add Dark Theme to other elements
