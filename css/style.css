@@ -290,6 +290,9 @@ body {
     color: #916dd5 !important;
 }
 
+.gp-stats-dark{
+  color: blue;
+}
 .gp-stat-dark{
     color: #f0e3ff !important;
     border-color: #916dd5 !important;
@@ -302,4 +305,8 @@ body {
 .gp-btn-dark{
     color: #f0e3ff !important;
     background-color: #916dd5 !important;
+}
+
+.gp-stat-val{
+  color: #f0e3ff !important;
 }
