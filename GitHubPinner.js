@@ -26,7 +26,6 @@
   }
 
   function loadElements(parent, theme = "", filter = "") {
-    console.log(theme);
     var values = parseUrl(parent.getAttribute("data"))
     getDataForUrl(values["URL"], values["TYPE"], parent, function(obj, type, element) {
       // set up DOM elements
