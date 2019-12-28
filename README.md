@@ -18,7 +18,7 @@ Simply set the html **data** field with a GitHub profile, repository, or reposit
 <div data="https://github.com/mackboudreau?tab=repositories" class="github-pinner" style="visibility: hidden;"></div>
 ```
 
-#### Preview
+## Preview
 <p align="left"><img src=".readme/profile-example.png" width="550px"><br>
 <img src=".readme/repo-example.png" width="1000px"></p>
 
@@ -29,7 +29,7 @@ The profile tab is equipped to handle a dark theme. This is specified by updatin
 <script src="d29mk5socxaj4o.cloudfront.net/GitHubPinner.js"></script>
 <div data="https://github.com/mack" class="github-pinner-dark" style="visibility: hidden;"></div>
 ```
-#### Preview (Dark-Theme)
+
 <p align="left"><img src=".readme/dark-theme-example.png" width="550px"><br>
 
 
