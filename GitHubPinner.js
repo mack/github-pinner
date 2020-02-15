@@ -8,15 +8,24 @@
   // MARK: - Main
   function init() {
     var origin = document.getElementsByClassName("github-pinner")
-    if (origin[0] == null) throw new Error('GitHub Planner: Could not find GitHub Pinner HTML element. Do you have the right \'id\' set on the element?')
+    var origin_dark = document.getElementsByClassName("github-pinner-dark")
+
+    if (origin[0] == null && origin_dark[0] == null){
+            throw new Error('GitHub Planner: Could not find the GitHub Pinner HTML element. Do you have the proper \'id\' set on the element?')
+    }
+
+
     loadCSS()
 
     for (i = 0; i < origin.length; i++) {
       loadElements(origin[i])
     }
+    for (i = 0; i < origin_dark.length; i++) {
+      loadElements(origin_dark[i], "dark")
+    }
   }
 
-  function loadElements(parent, filter = "") {
+  function loadElements(parent, theme = "", filter = "") {
     var values = parseUrl(parent.getAttribute("data"))
     getDataForUrl(values["URL"], values["TYPE"], parent, function(obj, type, element) {
       // set up DOM elements
@@ -30,6 +39,20 @@
             element.className = "github-pinner gp-profile"
           }
           element.innerHTML = temp
+
+          //Apply theme styles to all elements of the github-pinner
+          if(theme!=""){
+              var descendants = element.querySelectorAll("*");
+              element.classList.add("github-pinner-" + theme)
+              //Add 'theme' class to each child element
+              for(i=0; i<descendants.length; i++){
+                  let classList = descendants[i].classList
+                  let len = classList.length
+                  for(j=0;j<len;j++){
+                      classList.add(classList[j] + "-" + theme)
+                  }
+              }
+          }
       } else if (type == types["REPO"]) {
           var temp = getRepo(obj)
           if (element.classList.contains("flat")) {

@@ -271,3 +271,53 @@ body {
 .github-pinner.flat .gp-btn {
   background-color: blue;
 }
+
+
+/* -- Dark Theme Styles -- */
+/* Note that these are color styles only, the main styles defined for the standard theme determines widths, paddings, etc */
+
+.github-pinner-dark{
+    background-color: #121212 !important;
+    color: #f0e3ff !important;
+}
+
+.gp-name-dark:hover{
+    color: #916dd5 !important;
+}
+
+.gp-user-dark{
+    color: #90b8f8 !important;
+}
+
+.gp-user-dark:hover{
+    color: #916dd5 !important;
+}
+
+.gp-stat-dark{
+    color: #f0e3ff !important;
+    border-color: #916dd5 !important;
+}
+
+.gp-stats-dark:hover{
+    color: #916dd5 !important;
+}
+
+.gp-btn-dark{
+    color: #f0e3ff !important;
+    background-color: #916dd5 !important;
+    background-image: none !important;
+}
+
+.gp-btn-dark:hover{
+    boreder-color: #121212;
+    background-color: #d89cf6 !important;
+    background-image: none !important;
+}
+
+.gp-stat-val-dark{
+  color: #f0e3ff !important;
+}
+
+.gp-stat-dark:hover .gp-stat-desc-dark{
+    color: #916dd5 !important;
+}
