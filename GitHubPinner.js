@@ -118,9 +118,9 @@
 
   // MARK: - Helper Functions
   function parseUrl(url) {
-    profile = /^(http|https):\/\/(www.)?github.com(\/)?\/[A-Za-z\d]{1,39}(\/)?$/;
-    repository = /^(http|https):\/\/(www.)?github.com\/[A-Za-z\d]{1,39}\/[A-Za-z\d-]{1,100}(\/)?$/;
-    repositories = /^(http|https):\/\/(www.)?github.com\/[A-Za-z\d]{1,39}\?tab=repositories(\/)?$/;
+    profile = /^(http|https):\/\/(www.)?github.com(\/)?\/[A-Za-z\d-]{1,39}(\/)?$/;
+    repository = /^(http|https):\/\/(www.)?github.com\/[A-Za-z\d-]{1,39}\/[A-Za-z\d-]{1,100}(\/)?$/;
+    repositories = /^(http|https):\/\/(www.)?github.com\/[A-Za-z\d-]{1,39}\?tab=repositories(\/)?$/;
     if (profile.test(url)) {
       // profile
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com(\/)?/g, "").replace(/\/$/, "")
@@ -128,7 +128,7 @@
     } else if (repository.test(url)) {
       // repository
       var profileName = url.replace(/^(http|https):\/\/(www.)?github.com(\/)?/g, "").replace(/\/.*(\/)?$/, "")
-      var repositoryName = url.replace(/^(http|https):\/\/(www.)?github.com\/[A-Za-z\d]{1,39}\//g, "").replace(/\/$/, "")
+      var repositoryName = url.replace(/^(http|https):\/\/(www.)?github.com\/[A-Za-z\d-]{1,39}\//g, "").replace(/\/$/, "")
       return {"URL" : "https://api.github.com/repos/" + profileName + "/" + repositoryName, "TYPE": types["REPO"] }
     } else if (repositories.test(url)) {
       // repositories
